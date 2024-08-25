@@ -6,74 +6,91 @@
     <title>Practica con Lino</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a2e;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            color: #e5e5e5;
         }
+
         .container {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            background-color: #16213e;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             text-align: center;
             max-width: 400px;
             width: 100%;
         }
+
         h1 {
-            font-size: 28px;
             margin-bottom: 20px;
-            color: #ffd700;
+            font-size: 24px;
+            color: #f0a500;
         }
+
+        #wordDisplay {
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #e94560;
+        }
+
         input[type="text"] {
-            padding: 10px;
-            font-size: 18px;
+            padding: 12px;
+            font-size: 16px;
             width: 100%;
             box-sizing: border-box;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            border: none;
-            outline: none;
+            border-radius: 5px;
+            border: 1px solid #f0a500;
+            margin-bottom: 10px;
+            background-color: #0f3460;
+            color: #e5e5e5;
         }
+
         button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 5px;
             border: none;
             margin: 5px;
-            transition: background-color 0.3s ease;
+            background-color: #f0a500;
+            color: #16213e;
+            transition: background-color 0.3s;
         }
+
         button:hover {
-            background-color: #ffd700;
-            color: #333;
+            background-color: #e94560;
         }
+
         #feedback {
-            margin-top: 20px;
+            margin-top: 15px;
             font-size: 18px;
             font-weight: bold;
         }
-        .counter {
+
+        #remainingCount {
             margin-top: 10px;
             font-size: 16px;
-            color: #ffd700;
+            color: #f0a500;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Practica con Lino</h1>
-        <div class="counter" id="wordCounter">Palabras restantes: 377</div>
+        <div id="wordDisplay">Press the button to get a word.</div>
         <input type="text" id="userInput" placeholder="Escribe la palabra aquí">
-        <button onclick="speakWord()">Hear Word</button>
+        <button onclick="speakWord()">Escuchar palabra</button>
         <button onclick="checkWord()">Check</button>
-        <button onclick="nextWord()">Next Word</button>
-        <button onclick="toggleAccent()">Change Accent</button>
+        <button onclick="nextWord()">Siguiente palabra</button>
+        <button onclick="toggleVoice()">Switch to American</button>
         <div id="feedback"></div>
+        <div id="remainingCount">Words remaining: 0</div>
     </div>
     <script src="spell.js"></script>
 </body>
