@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practica con Lino</title>
     <style>
-         body {
+        body {
             font-family: 'Arial', sans-serif;
             background-color: #1a1a2e;
             display: flex;
@@ -83,22 +83,15 @@
 <body>
     <div class="container">
         <h1>Practica con Lino</h1>
-        <div id="wordDisplay">Presiona el botón para escuchar.</div>
-        <input type="text" id="userInput" placeholder="Escribe aquí">
+        <div id="wordDisplay">Press the button to get a word.</div>
+        <input type="text" id="userInput" placeholder="Escribe la palabra aquí">
         <button onclick="speakWord()">Escuchar palabra</button>
-        <button onclick="checkWord()">Comprobar</button>
+        <button onclick="checkWord()">Check</button>
         <button onclick="nextWord()">Siguiente palabra</button>
         <button onclick="toggleVoice()">Switch to American</button>
-
-        <!-- Agrega el selector de voz -->
-        <div>
-            <label for="voiceSelect">Selecciona la voz:</label>
-            <select id="voiceSelect"></select>
-        </div>
-
         <div id="feedback"></div>
-        <div id="remainingCount">Words remaining: 0</div>
+        <div id="remainingCount">palabras restantes: 0</div>
     </div>
-    <script src="script.js"></script>
+    <script src="spell.js"></script>
 </body>
 </html>
