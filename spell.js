@@ -70,8 +70,8 @@ function speakWord() {
 
 function nextWord() {
     if (remainingWords.length === 0) {
-        document.getElementById('wordDisplay').innerText = 'No words available.';
-        document.getElementById('remainingCount').innerText = 'Words remaining: 0';
+        document.getElementById('wordDisplay').innerText = 'no hay palabras lino, solucionalo.';
+        document.getElementById('remainingCount').innerText = 'palabras restantes: 0';
         return;
     }
 
@@ -83,7 +83,7 @@ function nextWord() {
     document.getElementById('feedback').innerText = '';
     document.getElementById('userInput').value = '';
     document.getElementById('userInput').focus();
-    document.getElementById('remainingCount').innerText = `Words remaining: ${remainingWords.length}`;
+    document.getElementById('remainingCount').innerText = `palabras restantes: ${remainingWords.length}`;
 }
 
 function checkWord() {
