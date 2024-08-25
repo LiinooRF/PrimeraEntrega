@@ -45,18 +45,22 @@ const words = [
     'Visible', 'Vision', 'Wheat', 'Whoever', 'Wrinkle'
 ];
 
-let currentWord = '';
+// Copia de la lista de palabras para mantener el original intacto
 let remainingWords = [...words];
-let currentAccent = 'en-GB'; // British English by default
+let currentWord = '';
+let isBritish = true; // Por defecto, acento británico
 
 function speakWord() {
     if (!currentWord) return;
 
     const utterance = new SpeechSynthesisUtterance(currentWord);
-    utterance.lang = currentAccent;
+    utterance.lang = isBritish ? 'en-GB' : 'en-US';
 
     const voices = window.speechSynthesis.getVoices();
-    const selectedVoice = voices.find(voice => voice.lang === currentAccent);
+    const selectedVoice = voices.find(voice =>
+        isBritish ? voice.lang === 'en-GB' : voice.lang === 'en-US'
+    );
+
     if (selectedVoice) {
         utterance.voice = selectedVoice;
     }
@@ -66,31 +70,35 @@ function speakWord() {
 
 function nextWord() {
     if (remainingWords.length === 0) {
-        document.getElementById('feedback').innerText = 'No words available.';
+        document.getElementById('wordDisplay').innerText = 'No words available.';
+        document.getElementById('remainingCount').innerText = 'Words remaining: 0';
         return;
     }
 
     const randomIndex = Math.floor(Math.random() * remainingWords.length);
-    currentWord = remainingWords.splice(randomIndex, 1)[0];
+    currentWord = remainingWords[randomIndex];
+    remainingWords.splice(randomIndex, 1); // Eliminar la palabra seleccionada
+
+    document.getElementById('wordDisplay').innerText = ''; // No mostrar la palabra
     document.getElementById('feedback').innerText = '';
     document.getElementById('userInput').value = '';
     document.getElementById('userInput').focus();
-    document.getElementById('wordCounter').innerText = `Palabras restantes: ${remainingWords.length}`;
+    document.getElementById('remainingCount').innerText = `Words remaining: ${remainingWords.length}`;
 }
 
 function checkWord() {
     const userInput = document.getElementById('userInput').value.trim().toLowerCase();
     if (userInput === currentWord.toLowerCase()) {
-        document.getElementById('feedback').innerText = '¡Correcto!';
+        document.getElementById('feedback').innerText = 'Correcto! :)';
     } else {
-        document.getElementById('feedback').innerText = 'Incorrecto bro, la palabra es: ' + currentWord;
+        document.getElementById('feedback').innerText = 'Incorrect bro! la palabra es: ' + currentWord;
     }
 }
 
-function toggleAccent() {
-    currentAccent = (currentAccent === 'en-GB') ? 'en-US' : 'en-GB';
-    document.getElementById('feedback').innerText = `acento cambiado a ${currentAccent === 'en-GB' ? 'British' : 'American'} English.`;
+function toggleVoice() {
+    isBritish = !isBritish;
+    document.querySelector('button[onclick="toggleVoice()"]').innerText = isBritish ? 'Switch to American' : 'Switch to British';
 }
 
-// Initialize the word list with the first word when the page loads
+// Inicializar la primera palabra cuando se carga la página
 window.onload = nextWord;
