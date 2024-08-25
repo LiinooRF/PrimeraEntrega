@@ -57,7 +57,11 @@ function speakWord() {
     utterance.lang = isBritish ? 'en-GB' : 'en-US';
 
     const voices = window.speechSynthesis.getVoices();
+    
+    // Busca específicamente una voz femenina o masculina
     const selectedVoice = voices.find(voice =>
+        isBritish ? voice.lang === 'en-GB' && voice.name.includes('Female') : voice.lang === 'en-US' && voice.name.includes('Female')
+    ) || voices.find(voice =>
         isBritish ? voice.lang === 'en-GB' : voice.lang === 'en-US'
     );
 
