@@ -1,4 +1,4 @@
-// List of words to practice
+// Lista de palabras
 const words = [
     'Ability', 'Abolition', 'Abortion', 'Acceptable', 'Absent', 'Abstract', 'Academic', 'Accept', 'Accidental',
     'Achievement', 'Acquire', 'Activate', 'Admission', 'Advantage', 'Adventure', 'Adverbial', 'Advertisement',
@@ -45,7 +45,6 @@ const words = [
     'Visible', 'Vision', 'Wheat', 'Whoever', 'Wrinkle'
 ];
 
-// Copia de la lista de palabras para mantener el original intacto
 let remainingWords = [...words];
 let currentWord = '';
 let isBritish = true; // Por defecto, acento británico
@@ -60,7 +59,8 @@ function speakWord() {
     
     // Busca específicamente una voz femenina o masculina
     const selectedVoice = voices.find(voice =>
-        isBritish ? voice.lang === 'en-GB' && voice.name.includes('Female') : voice.lang === 'en-US' && voice.name.includes('Female')
+        isBritish ? voice.lang === 'en-GB' && voice.name.includes('Female') :
+                    voice.lang === 'en-US' && voice.name.includes('Female')
     ) || voices.find(voice =>
         isBritish ? voice.lang === 'en-GB' : voice.lang === 'en-US'
     );
@@ -74,28 +74,28 @@ function speakWord() {
 
 function nextWord() {
     if (remainingWords.length === 0) {
-        document.getElementById('wordDisplay').innerText = 'no hay palabras lino, solucionalo.';
-        document.getElementById('remainingCount').innerText = 'palabras restantes: 0';
+        document.getElementById('wordDisplay').innerText = 'No hay palabras restantes.';
+        document.getElementById('remainingCount').innerText = 'Palabras restantes: 0';
         return;
     }
 
     const randomIndex = Math.floor(Math.random() * remainingWords.length);
     currentWord = remainingWords[randomIndex];
-    remainingWords.splice(randomIndex, 1); // Eliminar la palabra seleccionada
+    remainingWords.splice(randomIndex, 1); // Elimina la palabra seleccionada
 
-    document.getElementById('wordDisplay').innerText = ''; // No mostrar la palabra
+    document.getElementById('wordDisplay').innerText = '';
     document.getElementById('feedback').innerText = '';
     document.getElementById('userInput').value = '';
     document.getElementById('userInput').focus();
-    document.getElementById('remainingCount').innerText = `palabras restantes: ${remainingWords.length}`;
+    document.getElementById('remainingCount').innerText = `Palabras restantes: ${remainingWords.length}`;
 }
 
 function checkWord() {
     const userInput = document.getElementById('userInput').value.trim().toLowerCase();
     if (userInput === currentWord.toLowerCase()) {
-        document.getElementById('feedback').innerText = 'Correcto! :)';
+        document.getElementById('feedback').innerText = '¡Correcto! :)';
     } else {
-        document.getElementById('feedback').innerText = 'Incorrect bro! la palabra es: ' + currentWord;
+        document.getElementById('feedback').innerText = `Incorrecto, la palabra correcta es: ${currentWord}`;
     }
 }
 
@@ -104,5 +104,4 @@ function toggleVoice() {
     document.querySelector('button[onclick="toggleVoice()"]').innerText = isBritish ? 'Switch to American' : 'Switch to British';
 }
 
-// Inicializar la primera palabra cuando se carga la página
 window.onload = nextWord;
