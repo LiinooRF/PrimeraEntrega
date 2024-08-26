@@ -3,7 +3,9 @@ const words = [
     'Eccentric', 'Enthusiastic', 'Privilege', 'Decompression', 'Unbelievable', 'Babysitter', 'Rhythm', 'Thoughtful', 
 'Threatening', 'Brotherhood', 'Throughout', 'Strength', 'Thickness', 'Length', 'Untie', 'Underneath', 
 'Reasonable', 'Plumber', 'Chamber', 'Jealous', 'Height', 'Frighten', 'Empathy', 'Encouragement', 
-'Dearest', 'Roughly', 'Fearless', 'Fierce', 'Fairly', 'Slippery', 'Beautifully', 'Belongings', 'Cautious'
+'Dearest', 'Roughly', 'Fearless', 'Fierce', 'Fairly', 'Slippery', 'Beautifully', 'Belongings', 'Cautious',
+'Pleasant', 'Pressure', 'Pleasure'
+
 ];
 
 // Copia de la lista de palabras para mantener el original intacto
