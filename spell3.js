@@ -1,10 +1,15 @@
 // List of words to practice
 const words = [
-    'Eccentric', 'Enthusiastic', 'Privilege', 'Decompression', 'Unbelievable', 'Babysitter', 'Rhythm', 'Thoughtful', 
-'Threatening', 'Brotherhood', 'Throughout', 'Strength', 'Thickness', 'Length', 'Untie', 'Underneath', 
-'Reasonable', 'Plumber', 'Chamber', 'Jealous', 'Height', 'Frighten', 'Empathy', 'Encouragement', 
-'Dearest', 'Roughly', 'Fearless', 'Fierce', 'Fairly', 'Slippery', 'Beautifully', 'Belongings', 'Cautious',
-'Pleasant', 'Pressure', 'Pleasure'
+    'Accidental', 'Encouragement', 'Sporadic', 'Sketch', 'Recommend', 'Southern', 'Descendant', 'Demonstrate', 
+'Boomerang', 'Rehearse', 'Surrounded', 'Equation', 'Threatening', 'Autumn', 'Measure', 'Accept', 'Purse', 
+'Partial', 'Gesture', 'Struggle', 'Definitely', 'Correction', 'Opposite', 'Recently', 'Settle', 'Extinguish', 
+'Explosion', 'Cattle', 'Discussion', 'Remarkable', 'Foreigner', 'Abolition', 'Decrease', 'Separately', 
+'Frighten', 'Chemical', 'Thoughtful', 'Critically', 'Climbing', 'Liquefy', 'Envelope', 'Plentiful', 
+'Fabulous', 'Languages', 'Advantage', 'Appointment', 'Valuable', 'Northern', 'Environment', 'Enhance', 
+'Excitement', 'Policy', 'Briefly', 'Fierce', 'Liberty', 'Immediate', 'Thickness', 'Companion', 'Deathly', 
+'Expect', 'Entirely', 'Magazine', 'Laughter', 'Response', 'Comfortably', 'Capable', 'Baggage', 'Foolish', 
+'Cultivate'
+
 
 ];
 
